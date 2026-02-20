@@ -1,0 +1,999 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+body{
+    background: url(/images/Fundo1.png) no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    padding-top: 11vh;
+}
+body::-webkit-scrollbar {
+    width: 12px;
+}
+body::-webkit-scrollbar-track {
+    background: rgb(34, 34, 34);
+}
+body::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 50rem;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(194, 194, 194);
+}
+body::-webkit-scrollbar-corner{
+    background: rgb(34, 34, 34);
+}
+
+/* -------- Header -------- */
+
+.headerIdx{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    
+    backdrop-filter: blur(10px);
+    top: 0;
+    z-index: 999;
+    height: 11vh;
+    width: 100%;
+    padding: 5px;
+}
+.headerIdx a.linkActive,
+.headerIdx a.linkActive i{
+    color: rgb(255, 208, 0);
+}
+.headerIdx a.linkActive::before{
+    background: rgb(255, 208, 0);
+    width: 100%;
+}
+.headerIdx ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    
+    gap: 20px;
+}
+.headerIdx ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headerIdx .navIcon{
+    font-size: 20px;
+    color: white;
+}
+.headerIdx .letterText{
+    display: flex;
+}
+.headerIdx .iconText{
+    display: none;
+
+    font-size: 30px;
+    color: white;
+}
+.headerIdx span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 100%;
+}
+.headerIdx .spanLogo{
+    width: 35%;
+}
+.headerIdx .spanSaldo{
+    width: 30%;
+}
+.headerIdx .spanConf{
+    width: 20%;
+}
+.headerIdx .boxSaldo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.271);
+    gap: 10px;
+}
+.headerIdx .boxSaldo .saldoUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.headerIdx .boxSaldo a{
+    text-align: center;
+
+    cursor: pointer;
+    background: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    font-size: 14px;
+}
+.headerIdx .boxSaldo a:hover{
+    background: rgb(196, 196, 196);
+    transition: .3s;
+}
+.headerIdx .logo{
+    height: 100%;
+    transition: .3s;
+}
+.headerIdx .link{
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    color: white;
+    font-size: 20px;
+}
+.headerIdx .link:hover{
+    color: rgb(255, 208, 0);
+    transition: .3s ease-in-out;
+}
+.headerIdx .link::before{
+    content: '';
+    position: absolute;
+
+    background: white;
+    width: 0;
+    height: 3px;
+    bottom: 3px;
+}
+.headerIdx .link:hover::before{
+    background: rgb(255, 208, 0);
+    width: 100%;
+    transition: .3s ease-in-out;
+}
+.headerIdx .hiddenConfIcon{
+    display: none;
+
+    font-size: 30px;
+}
+.headerIdx .iconConf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    padding: 0 10px;
+}
+.headerIdx .iconConf i{
+    font-size: 26px;
+    color: white;
+}
+.headerIdx i:hover{
+    color: rgb(255, 208, 0);
+    scale: 1.2;
+    transition: .3s;
+}
+.headerIdx i:active{
+    scale: 0.9;
+    transition: .1s;
+}
+.headerIdx .hamburguerMenu{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    cursor: pointer;
+    width: 36px;
+    height: 30px;
+}
+.headerIdx .hamburguerMenu div{
+    background: white;
+    height: 4px;
+    width: 36px;
+    transition: .3s;
+}
+.headerIdx .hamburguerMenu:hover div{
+    background: rgb(255, 208, 0);
+    transition: .3s;
+}
+.headerIdx ul.activeMenu{
+    transform: translateX(0);
+}
+.headerIdx .hamburguerMenu.activeHamburguerMenu div:nth-child(1){
+    translate: 0 13px 0;
+    rotate: -45deg;
+}
+.headerIdx .hamburguerMenu.activeHamburguerMenu div:nth-child(2){
+    opacity: 0;
+}
+.headerIdx .hamburguerMenu.activeHamburguerMenu div:nth-child(3){
+    translate: 0 -13px 0;
+    rotate: 45deg;
+}
+
+@media(max-width: 1000px){
+    .headerIdx .link, .headerIdx .navIcon{
+        font-size: 16px;
+    }
+    .headerIdx .boxSaldo .saldoUser{
+        font-size: 14px;
+    }
+    .headerIdx .boxSaldo a{
+        font-size: 12px;
+    }
+}
+@media(max-width: 900px){
+    .headerIdx .boxSaldo .saldoUser{
+        font-size: 12px;
+    }
+    .headerIdx .boxSaldo a{
+        font-size: 10px;
+    }
+    .headerIdx .spanConf{
+        width: 10%;
+    }
+    .headerIdx .iconConf i{
+        font-size: 18px;
+    }
+}
+@media(max-width: 780px){
+    .headerIdx .link, .headerIdx .navIcon{
+        font-size: 14px;
+    }
+    .headerIdx .link::before{
+        height: 2px;
+    }
+    .headerIdx .boxSaldo{
+        gap: 6px;
+    }
+    .headerIdx .boxSaldo .saldoUser{
+        font-size: 10px;
+        margin-left: 6px;
+    }
+    .headerIdx .boxSaldo a{
+        padding: 3px 6px;
+        font-size: 8px;
+    }
+}
+@media(max-width: 630px){
+    .headerIdx .boxSaldo{
+        flex-direction: column;
+        
+        gap: 0;
+    }
+    .headerIdx .boxSaldo .saldoUser{
+        font-size: 12px;
+        margin: 3px 6px;
+        height: 50%;
+    }
+    .headerIdx .boxSaldo a{
+        padding: 3px 6px;
+        border-radius: 0 0 5px 5px;
+        font-size: 10px;
+        width: 100%;
+        height: 50%;
+    }
+}
+@media(max-width: 570px){
+    .headerIdx .link, .headerIdx .navIcon{
+        font-size: 12px;
+    }
+    .headerIdx .boxSaldo .saldoUser{
+        font-size: 10px;
+        margin: 3px 6px;
+    }
+    .headerIdx .boxSaldo a{
+        font-size: 8px;
+    }
+}
+@media(max-width: 510px){
+    .headerIdx .link, .headerIdx .navIcon{
+        font-size: 12px;
+    }
+}
+@media(max-width: 460px){
+    .headerIdx{
+        justify-content: space-around;
+
+        background: rgba(255, 255, 255, 0.171);
+    }
+    .headerIdx .spanLogo{
+        width: 20%;
+    }
+    .headerIdx .spanSaldo{
+        width: 45%;
+    }
+    .headerIdx .spanConf{
+        display: none;
+    }
+    .headerIdx ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+
+        background: rgba(255, 255, 255, 0.171);
+        width: 30vw;
+        height: 89vh;
+        top: 11vh;
+        right: 0;
+        padding: 10px;
+        z-index: 998;
+        transform: translateX(100%);
+        transition: .3s;
+    }
+    .headerIdx .boxSaldo{
+        flex-direction: column;
+        
+        width: 100%;
+        gap: 0;
+    }
+    .headerIdx .boxSaldo .saldoUser{
+        font-size: 12px;
+        margin: 3px 6px;
+        height: 50%;
+    }
+    .headerIdx .boxSaldo a{
+        padding: 3px 6px;
+        border-radius: 0 0 5px 5px;
+        font-size: 10px;
+        width: 100%;
+        height: 50%;
+    }
+    .headerIdx .navIcon{
+        font-size: 30px;
+    }
+    .headerIdx .link::before{
+        display: none;
+    }
+    .headerIdx .letterText{
+        display: none;
+    }
+    .headerIdx .iconText{
+        display: flex;
+    }
+    .headerIdx .hiddenConfIcon{
+        display: flex;
+    }
+    .headerIdx .hamburguerMenu{
+        display: flex;
+    }
+}
+@media(max-height: 500px){
+    .headerIdx .boxSaldo{
+        flex-direction: row;
+        
+        gap: 10px;
+    }
+    .headerIdx .boxSaldo{
+        gap: 0;
+    }
+    .headerIdx .boxSaldo .saldoUser{
+        font-size: 4px;
+        margin: 0;
+        width: 50%;
+    }
+    .headerIdx .boxSaldo a{
+        font-size: 4px;
+        width: 50%;
+        border-radius: 0 5px 5px 0;
+    }
+}
+@media (max-height: 500px) and (max-width: 460px) {
+    .headerIdx .boxSaldo .saldoUser{
+        font-size: 6px;
+    }
+    .headerIdx .hamburguerMenu{
+        width: 20px;
+        height: 16px;
+    }
+    .headerIdx .hamburguerMenu div{
+        height: 2px;
+        width: 20px;
+    }
+    .headerIdx .hamburguerMenu.activeHamburguerMenu div:nth-child(1){
+        translate: 0 7px 0;
+    }
+    .headerIdx .hamburguerMenu.activeHamburguerMenu div:nth-child(3){
+        translate: 0 -7px 0;
+    }
+    .headerIdx .navIcon, .headerIdx .iconText{
+        font-size: 20px;
+    }
+    .headerIdx ul{
+        width: 25vw;
+    }
+}
+
+/* -------- Header -------- */
+
+
+/* -------- Home -------- */
+
+.containerHome{
+    display: flex;
+
+    height: 89vh;
+}
+.containerHome div{
+    width: 50%;
+}
+.boxHomeContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+
+    padding: 30px 50px;
+}
+.boxHomeContent h1{
+    animation: textNeon 3s linear infinite;
+    font-size: 60px;
+}
+.boxHomeContent h1:hover{
+    animation: textShadowNeon 3s linear infinite;
+}
+.boxHomeContent p{
+    color: white;
+    font-size: 30px;
+}
+.boxHomeContent .divButton{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    width: 100%;
+    gap: 20px;
+}
+.boxHomeContent .divButton a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    background: black;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.boxHomeContent .divButton a::before{
+    content: '';
+    position: absolute;
+    
+    background: conic-gradient(from var(--angle), rgb(255, 208, 0), red, rgb(255, 208, 0));
+    animation: rotationNeon 3s linear infinite;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    filter: brightness(0);
+    z-index: -2;
+}
+.boxHomeContent .divButton a:hover::before{
+    filter: brightness(1);
+    padding: 2px;
+    transition: .3s;
+}
+.boxHomeContent .divButton a:hover{
+    animation: textNeon 3s linear infinite;
+    transition: .3s;
+}
+.boxHomeContent .divSocial{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    width: 100%;
+    gap: 20px;
+}
+.boxHomeContent .divSocial a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    background: black;
+    color: white;
+    border-radius: 50rem;
+    font-size: 28px;
+    height: 100%;
+    padding: 15px;
+    aspect-ratio: 1/1;
+}
+.boxHomeContent .divSocial a::before{
+    content: '';
+    position: absolute;
+
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 50rem;
+    padding: 3px;
+    z-index: -2;
+}
+.boxHomeContent .divSocial a:hover::before{
+    background: conic-gradient(from var(--angle), rgb(255, 208, 0), red, rgb(255, 208, 0));
+    animation: rotationNeon 3s linear infinite;
+}
+.boxHomeContent .divSocial a:hover{
+    animation: textNeon 3s linear infinite;
+}
+.boxHomeImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boxHomeImg img{
+    width: 90%;
+    aspect-ratio: 50/41;
+}
+
+/* -------- Home -------- */
+
+
+/* -------- Cassino -------- */
+
+.containerCassino{
+    display: grid;
+    justify-content: start;
+    align-content: start;
+    
+    grid-template-columns:repeat(3, 1fr);
+
+    padding: 40px;
+    gap: 40px 20px;
+}
+.containerCassino .boxCard{
+    position: relative;
+}
+.containerCassino .card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    overflow: hidden;
+    background: white;
+    aspect-ratio: 1.5/1;
+    border-radius: 15px;
+    transition: .3s;
+}
+.containerCassino .card img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: .3s;
+}
+.containerCassino .card img:hover{
+    transform: scale(1.5);
+    filter: blur(3px);
+}
+.containerCassino .card img:hover + .playBtn{
+    display: flex;
+}
+.containerCassino .playBtn{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    box-shadow: 0 0 15px black;
+    border: solid 4px rgb(44, 44, 44);
+    color: rgb(44, 44, 44);
+    background: rgb(0, 0, 0);
+    border-radius: 50rem;
+    padding: 4px;
+    font-size: 60px;
+    transition: .3s;
+}
+.containerCassino .playBtn:hover{
+    display: flex;
+    
+    background: gray;
+}
+.containerCassino .boxCard.hovered img {
+    transform: scale(1.5);
+    filter: blur(3px);
+}
+.containerCassino .boxCard .title{
+    text-align: start;
+    
+    color: rgb(175, 175, 175);
+    width: 100%;
+    font-size: 20px;
+}
+.containerCassino .boxCard i{
+    color: rgb(44, 44, 44);
+}
+
+/* -------- Cassino -------- */
+
+
+/* -------- Deposito -------- */
+
+.containerTransacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 89vh;
+}
+.boxTransacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    
+    box-shadow: 0 0 20px black inset;
+    background: rgb(39, 39, 39);
+    padding: 30px;
+    width: 300px;
+    border-radius: 20px;
+    gap: 20px;
+}
+.boxTransacao::before{
+    content: '';
+    position: absolute;
+
+    background: rgb(46, 46, 46);
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    padding: 40px;
+    z-index: -1;
+}
+.boxTransacao::after{
+    content: '';
+    position: absolute;
+
+    background: conic-gradient(from var(--angle), rgb(255, 208, 0), red, rgb(255, 208, 0));
+    box-shadow: 0 0 30px black;
+    animation: rotationNeon 3s linear infinite;
+    width: 100%;
+    height: 100%;
+    border-radius: 42px;
+    padding: 42px;
+    filter: brightness(0);
+    z-index: -2;
+}
+.boxTransacao:focus-within::after{
+    filter: brightness(1);
+    transition: .3s;
+}
+.boxTransacao .divInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: 100%;
+}
+.boxTransacao .divInput::before{
+    content: '';
+    position: absolute;
+
+    background: conic-gradient(from var(--angle), rgb(255, 208, 0), red, rgb(255, 208, 0));
+    animation: rotationNeon 3s linear infinite;
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    filter: brightness(0);
+    z-index: 0;
+}
+.boxTransacao .divInput:focus-within::before{
+    filter: brightness(1);
+    padding: 2px;
+    transition: .3s;
+}
+.boxTransacao .divInput i{
+    position: absolute;
+
+    color: black;
+    background: rgb(39, 39, 39);
+    padding: 5px;
+    font-size: 20px;
+    right: 30px;
+    z-index: 4;
+}
+.boxTransacao .divInput:focus-within i{
+    animation: textNeon 3s linear infinite;
+    transition: .3s;
+}
+.boxTransacao .divInput input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgb(39, 39, 39);
+    border: 2px solid black;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    z-index: 3;
+}
+.boxTransacao .divInput input:focus{
+    animation: textNeon 3s linear infinite;
+    transition: .3s;
+}
+.boxTransacao .divInput label{
+    position: absolute;
+    
+    pointer-events: none;
+    background: rgb(39, 39, 39);
+    padding: 0 5px;
+    left: 8px;
+    z-index: 3;
+}
+.boxTransacao .divInput:focus-within label{
+    animation: textNeon 3s linear infinite;
+    transform: translateY(-25px);
+    font-size: 12px;
+    transition: .3s;
+}
+.boxTransacao .divInput input:valid + label{
+    transform: translateY(-25px);
+    font-size: 12px;
+    transition: .3s;
+}
+.boxTransacao button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    background: black;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
+    z-index: 4;
+}
+.boxTransacao button:hover{
+    opacity: .6;
+    transition: .3s;
+}
+
+/* -------- Deposito -------- */
+
+
+/* -------- Configurações -------- */
+
+.containerConfig{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 89vh;
+}
+.boxFavSport{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 40px;
+}
+.boxFavSport h1{
+    text-align: center;
+
+    color: rgb(255, 208, 0);
+    font-size: 50px;
+}
+.divSportsConfig{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    
+    grid-template-columns: repeat(4, 1fr);
+
+    width: 30vw;
+    gap: 20px;
+}
+.divSportsConfig button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    background: black;
+    cursor: pointer;
+    border: none;
+    color: white;
+    aspect-ratio: 1/1;
+    border-radius: 50rem;
+    padding: 10px;
+}
+.divSportsConfig button:hover{
+    animation: textNeon 3s linear infinite;
+}
+.divSportsConfig button::before{
+    content: '';
+    position: absolute;
+
+    background: white;
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+    border-radius: 50rem;
+    z-index: -2;
+}
+.divSportsConfig button:hover::before{
+    background: conic-gradient(from var(--angle), rgb(255, 208, 0), red, rgb(255, 208, 0));
+    animation: rotationNeon 3s linear infinite;
+}
+.divSportsConfig button i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 36px;
+    aspect-ratio: 1/1;
+}
+
+/* -------- Configurações -------- */
+
+
+/* -------- Erro404 -------- */
+
+.containerErro404{
+    display: flex;
+}
+.box404, .boxImg404{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 50vw;
+    height: 89vh;
+}
+.content404{
+    background: white;
+    padding: 20px;
+    width: 70%;
+}
+.content404 *{
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+}
+.content404 h1{
+    color: rgb(39, 39, 39);
+    font-size: 100px;
+    height: 100px;
+}
+.content404 h2{
+    overflow-wrap: break-word;
+    font-size: 34px;
+}
+.content404 p{
+    overflow-wrap: break-word;
+    font-size: 18px;
+    margin: 20px 0;
+}
+.content404 a{
+    justify-content: center;
+    
+    color: white;
+    background: rgb(39, 39, 39);
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.content404 a:hover{
+    opacity: .8;
+    transition: .3s;
+}
+.boxImg404 img{
+    width: 70%;
+}
+
+@media(max-width: 1050px){
+    .content404 a{
+        font-size: 16px;
+    }
+}
+@media(max-width: 870px){
+    .content404 a{
+        font-size: 12px;
+    }
+}
+@media(max-width: 710px){
+    .content404 h1{
+        font-size: 90px;
+    }
+    .content404 h2{
+        font-size: 30px;
+    }
+    .content404 a{
+        font-size: 10px;
+    }
+}
+@media(max-width: 630px){
+    .box404{
+        width: 100vw;
+    }
+    .boxImg404{
+        display: none;
+    }
+    .content404 *{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .content404 a{
+        font-size: 18px;
+    }
+}
+@media(max-width: 480px){
+    .content404 a{
+        font-size: 14px;
+    }
+}
+@media(max-width: 400px){
+    .content404 a{
+        font-size: 10px;
+    }
+}
+
+/* -------- Erro404 -------- */
+
+
+/* -------- Classes Especiais -------- */
+
+.pretoBranco{
+    filter: grayscale(1);
+}
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes rotationNeon {
+    to {
+        --angle: 360deg;
+    }
+}
+@keyframes textNeon {
+    0% {
+        color: rgb(255, 60, 0);
+    }
+    50% {
+        color: rgb(255, 208, 0);
+    }
+    to {
+        color: rgb(255, 60, 0);
+    }
+}
+@keyframes textShadowNeon {
+    0% {
+        color: rgb(255, 60, 0);
+        text-shadow: 0 0 10px black, 0 0 10px rgb(255, 60, 0);
+    }
+    50% {
+        color: rgb(255, 208, 0);
+        text-shadow: 0 0 10px black, 0 0 15px rgb(255, 208, 0);
+    }
+    to {
+        color: rgb(255, 60, 0);
+        text-shadow: 0 0 10px black, 0 0 10px rgb(255, 60, 0);
+    }
+}
+
+/* -------- Classes Especiais -------- */
